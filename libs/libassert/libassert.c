@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:34:09 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 12:07:54 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/15 14:26:45 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,28 @@ static size_t	counter = 0;
 static void	start_test(void)
 {
 	printf("%zu.", ++counter);
+	fflush(stdout);
 }
 
 static void	print_ok(void)
 {
 	printf(ANSI_COLOR_GREEN "OK " ANSI_COLOR_RESET);
+	fflush(stdout);
 }
 
 static void	print_ko(void)
 {
 	printf(ANSI_COLOR_RED "KO " ANSI_COLOR_RESET);
+	fflush(stdout);
 }
 
 static void print_error(char *fmt, ...)
 {
 	va_list	args;
 	va_start(args, fmt);
-	fprintf(stderr, ANSI_COLOR_RED);
+	//fprintf(stderr, ANSI_COLOR_RED);
 	vfprintf(stderr, fmt, args);
-	fprintf(stderr, ANSI_COLOR_RESET);
+	//fprintf(stderr, ANSI_COLOR_RESET);
 	va_end(args);
 }
 
@@ -54,7 +57,7 @@ void	ASSERT_TRUE(bool actual,
 	if (actual == false)
 	{
 		print_ko();
-		print_error("%s failed: ", __func__);
+		print_error("[test %zu] %s failed: ", __func__);
 		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 		return ;
@@ -85,9 +88,9 @@ void	ASSERT_EQ_UI(unsigned int actual, unsigned int expected,
 {
 	if (actual != expected)
 	{
-		printf("%s failed: (\"%u\") is not equal to expected (\"%u\"). ",
+		print_error("[test %zu] %s failed: (\"%u\") is not equal to expected (\"%u\"). ",
 			__func__, actual, expected);
-		printf("func %s at file %s, line %d\n",
+		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
 }
@@ -97,9 +100,9 @@ void	ASSERT_EQ_L(long actual, long expected,
 {
 	if (actual != expected)
 	{
-		printf("%s failed: (\"%li\") is not equal to expected (\"%li\"). ",
-			__func__, actual, expected);
-		printf("func %s at file %s, line %d\n",
+		print_error("[test %zu] %s failed: (\"%li\") is not equal to expected (\"%li\"). ",
+			counter, __func__, actual, expected);
+		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
 }
@@ -109,9 +112,9 @@ void	ASSERT_EQ_UL(unsigned long actual, unsigned long expected,
 {
 	if (actual != expected)
 	{
-		printf("%s failed: (\"%lu\") is not equal to expected (\"%lu\"). ",
-			__func__, actual, expected);
-		printf("func %s at file %s, line %d\n",
+		print_error("[test %zu] %s failed: (\"%lu\") is not equal to expected (\"%lu\"). ",
+			counter, __func__, actual, expected);
+		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
 }
@@ -121,9 +124,9 @@ void	ASSERT_EQ_LL(long long actual, long long expected,
 {
 	if (actual != expected)
 	{
-		printf("%s failed: (\"%lli\") is not equal to expected (\"%lli\"). ",
-			__func__, actual, expected);
-		printf("func %s at file %s, line %d\n",
+		print_error("[test %zu] %s failed: (\"%lli\") is not equal to expected (\"%lli\"). ",
+			counter, __func__, actual, expected);
+		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
 }
@@ -133,9 +136,9 @@ void	ASSERT_EQ_ULL(unsigned long long actual, unsigned long long expected,
 {
 	if (actual != expected)
 	{
-		printf("%s failed: (\"%llu\") is not equal to expected (\"%llu\"). ",
-			__func__, actual, expected);
-		printf("func %s at file %s, line %d\n",
+		print_error("[test %zu] %s failed: (\"%llu\") is not equal to expected (\"%llu\"). ",
+			counter, __func__, actual, expected);
+		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
 }
@@ -145,9 +148,9 @@ void	ASSERT_EQ_SIZE(size_t actual, size_t expected,
 {
 	if (actual != expected)
 	{
-		printf("%s failed: (\"%zu\") is not equal to expected (\"%zu\"). ",
-			__func__, actual, expected);
-		printf("func %s at file %s, line %d\n",
+		print_error("[test %zu] %s failed: (\"%zu\") is not equal to expected (\"%zu\"). ",
+			counter, __func__, actual, expected);
+		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
 }
@@ -157,9 +160,9 @@ void	ASSERT_EQ_STR(char *actual, char *expected, size_t size,
 {
 	if (strncmp(actual, expected, size) != 0)
 	{
-		printf("%s failed: (\"%s\") is not equal to expected (\"%s\"). ",
-			__func__, actual, expected);
-		printf("func %s at file %s, line %d\n",
+		print_error("[test %zu] %s failed: (\"%s\") is not equal to expected (\"%s\"). ",
+			counter, __func__, actual, expected);
+		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
 }
@@ -177,22 +180,45 @@ static void	hexdump(void *p, size_t size)
 	while (i < size)
 	{
 		c = *(ptr + i);
-		printf("%c%c", g_base16[(c >> 4) & 0x0f], g_base16[c & 0x0f]);
+		print_error("%c%c", g_base16[(c >> 4) & 0x0f], g_base16[c & 0x0f]);
 		i++;
 	}
 }
 
+#include <malloc/malloc.h>
 void	ASSERT_EQ_MEM(void *actual, void *expected, size_t size,
 	char *caller_file, const char *caller_func, int caller_line)
 {
+	start_test();
+	if (expected == NULL || actual == NULL)
+	{
+		if (expected != actual)
+		{
+			print_ko();
+			print_error("[test %zu] %s failed: \"%p\" is not equal to expected \"%p\"", counter, __func__, actual, expected);
+		}
+		else
+			print_ok();
+		return ;
+	}
+		
+	if (malloc_size(actual) != malloc_size(expected))
+	{
+		print_ko();
+		print_error("[test %zu] %s failed: malloc_size \"%i\" is not equal to expected \"%i\"", counter, __func__, malloc_size(actual), malloc_size(expected));
+		return ;
+	}
 	if (memcmp(actual, expected, size) != 0)
 	{
-		printf("%s failed: (\"", __func__);
+		print_ko();
+		print_error("[test %zu] %s failed: hexdump (\"", counter, __func__);
 		hexdump(actual, size);
-		printf("\") is not equal to expected (\"");
+		print_error("\") is not equal to expected (\"");
 		hexdump(expected, size);
-		printf("\"). ");
-		printf("func %s at file %s, line %d\n",
+		print_error("\"). ");
+		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
+	else
+		print_ok();
 }

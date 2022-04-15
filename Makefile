@@ -6,43 +6,44 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/15 11:26:32 by susami           ###   ########.fr        #
+#    Updated: 2022/04/15 14:35:29 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_DIR	=	../
-LIBFT		=	$(LIBFT_DIR)libft.a
-LIBS		= 	$(LIBFT) ./libs/*/*.a
-CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror
-NAME	=	run-test
-INCS	=	./includes\
-			./libs/libassert\
-			$(LIBFT_DIR)
-SRCS	=	srcs/*.c
-OBJS	=	$(SRCS:%.c=$(OUT_O_DIR)/%.o)
-OBJ_DIR	=	objs
-FUNCS	=	atoi\
-			calloc
+LIBFT_DIR		=	../
+LIBFT			=	$(LIBFT_DIR)libft.a
+LIBASSERT_DIR	=	./libs/libassert/
+LIBASSERT		=	$(LIBASSERT_DIR)libassert.a
+LIBS			= 	$(LIBFT) ./libs/*/*.a
+CC				=	gcc
+CFLAGS			=	-Wall -Wextra -Werror
+INCS			=	./includes\
+					./libs/libassert\
+					$(LIBFT_DIR)
+SRCS			=	srcs/*.c
+OBJS			=	$(SRCS:%.c=$(OUT_O_DIR)/%.o)
+OBJ_DIR			=	objs
+FUNCS			=	atoi\
+					calloc
+ERROR_LOG		=	error.log
 
-all: $(NAME)
+all: $(FUNCS)
+
+start_tests: $(LIBFT) $(LIBASSERT)
+	@$(RM) $(ERROR_LOG)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS) 
-	$(CC) -o $(NAME) $(CFLAGS)
-	./$(NAME)
+$(LIBASSERT):
+	$(MAKE) -C ./libs/libassert
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) -c $< $(LIBFT) -I $(INCS) -o $@ $(CFLAGS)
 
 clean:
-	@$(RM) $(OUT_O_DIR)/*.o
-
-fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(OUT_O_DIR)/*.o $(ERROR_LOG)
 
 re: fclean all
 
@@ -60,8 +61,9 @@ norm:
 	@echo "------------------------------Checking norminette------------------------------"
 	norminette $(LIBFT_DIR)
 
-atoi: $(LIBFT)
-	$(CC) srcs/test_ft_$@.c $(LIBS) $(addprefix -I , $(INCS)) -o $(NAME) $(CFLAGS)
-	./$(NAME)
+$(FUNCS): $(LIBFT) $(LIBASSERT)
+	@printf "ft_$@: "
+	@$(CC) srcs/test_ft_$@.c $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out
+	@printf "\n"
 
 .PHONY: all clean fclean re bonus norm test clone

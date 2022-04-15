@@ -1,4 +1,4 @@
 *.o
 *.a
 *.out
-run-test
+*.log
