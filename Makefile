@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/15 14:35:29 by susami           ###   ########.fr        #
+#    Updated: 2022/04/15 14:43:53 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ FUNCS			=	atoi\
 					calloc
 ERROR_LOG		=	error.log
 
-all: $(FUNCS)
+all: start_tests $(FUNCS)
 
 start_tests: $(LIBFT) $(LIBASSERT)
 	@$(RM) $(ERROR_LOG)
