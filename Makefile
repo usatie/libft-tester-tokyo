@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/15 16:43:30 by susami           ###   ########.fr        #
+#    Updated: 2022/04/15 16:50:50 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,10 @@ SRCS			=	srcs/*.c
 OBJS			=	$(SRCS:%.c=$(OUT_O_DIR)/%.o)
 OBJ_DIR			=	objs
 FUNCS			=	isalpha\
+					isdigit\
+					isalnum\
+					isascii\
+					isprint\
 					atoi\
 					calloc
 ERROR_LOG		=	error.log
