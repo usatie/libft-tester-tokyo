@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 12:10:25 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 14:10:02 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/15 16:22:35 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	main(void)
 	/* 5 */ check_calloc(42, 1);
 	/* 6 */ check_calloc(1, 42);
 	/* 7 */ check_calloc(42, 42);
-	/* 8 */ check_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10);
-	/* 9 */ check_calloc(INT_MAX, 1);
-	/* 10 */ check_calloc(UINT_MAX, 1);
-	/* 11 */ check_calloc(LONG_MAX, 1);
-	/* 12 */ check_calloc(ULONG_MAX, 1);
-	/* 13 */ check_calloc(SIZE_MAX, 1);
+	/* 8 overflow */ check_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10);
+	/* 9 too big 1*/ check_calloc(LONG_MAX, 1);
+	/* 10 too big 2*/ check_calloc(ULONG_MAX, 1);
+	/* 11 too big 3*/ check_calloc(SIZE_MAX, 1);
+	/* 12 very big 1*/ check_calloc(INT_MAX, 1);
+	/* 13 very big 2*/ check_calloc(UINT_MAX, 1);
 	return (0);
 }
