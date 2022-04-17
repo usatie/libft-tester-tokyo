@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/17 21:15:29 by susami           ###   ########.fr        #
+#    Updated: 2022/04/17 22:06:04 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ FUNCS			=	isalpha\
 					bzero\
 					memcpy\
 					memmove\
+					strlcpy\
 					strlcat\
 					atoi\
 					calloc
