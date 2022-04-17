@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 16:35:50 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 16:49:11 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/15 19:41:38 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int	main(void)
 {
-	/* 1 */ ASSERT_EQ_I(ft_isalpha('a'), isalpha('a'));
+	/* 1 */ ASSERT_EQ_I(ft_isalpha('a'), isalpha('b'));
 	/* 2 */ ASSERT_EQ_I(ft_isalpha('a' - 1), isalpha('a' - 1));
 	/* 3 */ ASSERT_EQ_I(ft_isalpha('a' + 1), isalpha('a' + 1));
 	/* 4 */ ASSERT_EQ_I(ft_isalpha('z'), isalpha('z'));

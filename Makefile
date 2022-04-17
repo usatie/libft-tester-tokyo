@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/15 17:14:46 by susami           ###   ########.fr        #
+#    Updated: 2022/04/17 21:05:56 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,20 +30,32 @@ FUNCS			=	isalpha\
 					isprint\
 					strlen\
 					memset\
+					bzero\
+					memcpy\
+					memmove\
 					atoi\
 					calloc
 ERROR_LOG		=	error.log
 
 all: start_tests $(FUNCS)
+	@find . -name "*.log" -size 0 -exec rm {} \;
+	@[ ! -f $(ERROR_LOG) ] &&\
+		printf "\e[32m\n\n------------------------------------------------------------\
+		\nAll tests passed successfully! Congratulations :D\n\e[m" ||\
+		printf "\e[31m\n\n------------------------------------------------------------\
+		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
 
-start_tests: $(LIBFT) $(LIBASSERT)
+
+start_tests:
 	@$(RM) $(ERROR_LOG)
+	make -C $(LIBFT_DIR)
+	make -C ./libs/libassert
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
 $(LIBASSERT):
-	$(MAKE) -C ./libs/libassert
+	make -C ./libs/libassert
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)

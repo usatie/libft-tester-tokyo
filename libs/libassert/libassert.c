@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:34:09 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 16:32:40 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/15 19:14:15 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,34 @@ void	ASSERT_EQ_STR(char *actual, char *expected, size_t size,
 		print_ok();
 }
 
+void	ASSERT_EQ_MALLOC_SIZE(void *actual, void *expected,
+	char *caller_file, const char *caller_func, int caller_line)
+{
+	start_test();
+	if (expected == NULL || actual == NULL)
+	{
+		if (expected != actual)
+		{
+			print_ko();
+			print_error("[test %zu] %s failed: \"%p\" is not equal to expected \"%p\"", counter, __func__, actual, expected);
+			print_error("func %s at file %s, line %d\n",
+			caller_func, caller_file, caller_line);
+		}
+		else
+			print_ok();
+		return ;
+	}
+		
+	if (malloc_size(actual) != malloc_size(expected))
+	{
+		print_ko();
+		print_error("[test %zu] %s failed: malloc_size \"%i\" is not equal to expected \"%i\"\n", counter, __func__, malloc_size(actual), malloc_size(expected));
+		print_error("func %s at file %s, line %d\n",
+			caller_func, caller_file, caller_line);
+	}
+	else
+		print_ok();
+}
 void	ASSERT_EQ_MEM(void *actual, void *expected, size_t size,
 	char *caller_file, const char *caller_func, int caller_line)
 {
@@ -228,18 +256,14 @@ void	ASSERT_EQ_MEM(void *actual, void *expected, size_t size,
 		{
 			print_ko();
 			print_error("[test %zu] %s failed: \"%p\" is not equal to expected \"%p\"", counter, __func__, actual, expected);
+			print_error("func %s at file %s, line %d\n",
+			caller_func, caller_file, caller_line);
 		}
 		else
 			print_ok();
 		return ;
 	}
 		
-	if (malloc_size(actual) != malloc_size(expected))
-	{
-		print_ko();
-		print_error("[test %zu] %s failed: malloc_size \"%i\" is not equal to expected \"%i\"", counter, __func__, malloc_size(actual), malloc_size(expected));
-		return ;
-	}
 	if (memcmp(actual, expected, size) != 0)
 	{
 		print_ko();
