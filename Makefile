@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/17 22:23:50 by susami           ###   ########.fr        #
+#    Updated: 2022/04/18 07:42:08 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,8 @@ FUNCS			=	isalpha\
 					strlcat\
 					toupper\
 					tolower\
+					strchr\
+					strrchr\
 					atoi\
 					calloc
 ERROR_LOG		=	error.log

@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:28:39 by susami            #+#    #+#             */
-/*   Updated: 2022/04/17 22:28:58 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 08:14:40 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 	/* 14 */ ASSERT_EQ_I(ft_tolower('a' - 256), tolower('a' - 256));
 	/* 15 */ ASSERT_EQ_I(ft_tolower('a' + 1), tolower('a' + 1));
 	/* 16 */ ASSERT_EQ_I(ft_tolower('!'), tolower('!'));
-	/* 17 */ ASSERT_EQ_I(ft_tolower('{'), tolower('}'));
+	/* 17 */ ASSERT_EQ_I(ft_tolower('{'), tolower('{'));
 	/* 18 */ ASSERT_EQ_I(ft_tolower('~'), tolower('~'));
 	/* 19. zero */ ASSERT_EQ_I(ft_tolower(0), tolower(0));
 	/* 20. INI_MAX */ ASSERT_EQ_I(ft_tolower(INT_MAX), tolower(INT_MAX));
