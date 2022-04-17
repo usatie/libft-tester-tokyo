@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 21:16:21 by susami            #+#    #+#             */
-/*   Updated: 2022/04/17 21:36:52 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/17 21:40:47 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ int	main(void)
 	/* 16 */ ASSERT_EQ_STR(dst1, dst2);
 	/* 17 */ ASSERT_EQ_I(ft_strlcat(dst1, src1, 100), strlcat(dst2, src2, 100));
 	/* 18 */ ASSERT_EQ_STR(dst1, dst2);
+	/* 19 */ ASSERT_EQ_I(ft_strlcat(NULL, src1, 0), strlcat(NULL, src2, 0));
 }
