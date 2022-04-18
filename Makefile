@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/18 09:12:46 by susami           ###   ########.fr        #
+#    Updated: 2022/04/18 10:27:34 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ FUNCS			=	isalpha\
 					memcmp\
 					strnstr\
 					atoi\
-					calloc
+					calloc\
+					strdup\
+
 ERROR_LOG		=	error.log
 
 all: start_tests $(FUNCS)
