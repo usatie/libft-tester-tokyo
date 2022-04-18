@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_strtrim.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 16:26:25 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 16:32:14 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/19 00:30:30 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <string.h>
 #include "libft.h"
 #include "libassert.h"
-#include <malloc/malloc.h>
 
 int	main(void)
 {
