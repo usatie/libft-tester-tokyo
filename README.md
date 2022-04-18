@@ -49,7 +49,7 @@ $ make norm
 # Thanks for trying it out!
 If you notice anything or want to add some test cases, feel free to send issues/PRs!
 
-This project is inspired by these project, and imported many cases from them too.
+This project is inspired by these projects, and many cases are imported from them too.
 Thanks a lot!
 - https://github.com/Tripouille/libftTester
 - https://github.com/alelievr/libft-unit-test
