@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_strncmp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 08:17:32 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 08:37:03 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:18:38 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
 #include "libft.h"
 #include "libassert.h"
 

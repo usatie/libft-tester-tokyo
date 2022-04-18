@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_isalnum.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 16:53:15 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 16:54:22 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:16:30 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
 #include "libft.h"
 #include "libassert.h"
 

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_toupper.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:22:06 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 08:13:53 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:19:35 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
 #include "libft.h"
 #include "libassert.h"
 

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_isprint.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 16:56:06 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 16:56:32 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:14:56 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
 #include "libft.h"
 #include "libassert.h"
 

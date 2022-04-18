@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_memset.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:11:14 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 08:09:32 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:17:59 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 #include "libft.h"
 #include "libassert.h"
 #include <malloc/malloc.h>

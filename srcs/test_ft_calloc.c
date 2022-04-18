@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_calloc.c                                      :+:      :+:    :+:   */
+/*   test_ft_calloc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 12:10:25 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 19:13:34 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:16:19 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 #include "libft.h"
 #include "libassert.h"
 #include <malloc/malloc.h>

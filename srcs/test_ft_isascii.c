@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_isascii.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 16:54:50 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 16:55:13 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:14:39 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
 #include "libft.h"
 #include "libassert.h"
 

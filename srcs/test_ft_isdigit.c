@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_isdigit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 16:51:05 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 16:52:49 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:14:48 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <limits.h>
 #include "libft.h"
 #include "libassert.h"
 
