@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:40:45 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 08:12:47 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 10:16:25 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	check_bzero(char *s1, char *s2, size_t size)
 {
 	memset(s1, 'A', size);
 	memset(s2, 'B', size);
-	void	*actual = ft_bzero(s1, size);
-	void	*expected = bzero(s2, size);
+	ft_bzero(s1, size);
+	bzero(s2, size);
+	void	*actual = s1;
+	void	*expected = s2;
 	ASSERT_EQ_MEM(actual, expected, size);
 }
 
