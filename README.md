@@ -46,9 +46,31 @@ $ make norm
 <img width="1369" alt="Screen Shot 2022-04-18 at 15 27 40" src="https://user-images.githubusercontent.com/7609060/163765260-3fad885b-e00a-4b3f-9468-cc998ae5cb24.png">
 
 
-# Thanks for trying it out!
+# Please add more test cases!
+Thanks for trying it out!
 If you notice anything or want to add some test cases, feel free to send issues/PRs!
 
+## Sample Code for your first contribution
+`ASSERT_EQ`functions are very easy to use.
+Basically the first argument is the actual value and the second argument is the expected value.
+for creating unit tests
+```
+int	main(void)
+{
+	ASSERT_EQ_I(ft_atoi("123"), 123);
+	ASSERT_EQ_I(ft_atoi("-42"), -42);
+	
+	ASSERT_EQ_STR(ft_itoa(123), "123");
+	ASSERT_EQ_STR(ft_itoa(-42), "-42");
+	
+	int	len = 10;
+	char *actual = ft_calloc(len, sizeof(char));
+	char *expected = calloc(len, sizeof(char));
+	ASSERT_EQ_MEM(actual, expected, len);
+}
+```
+
+## Thanks predecessors!
 This project is inspired by these projects, and many cases are imported from them too.
 Thanks a lot!
 - https://github.com/Tripouille/libftTester
