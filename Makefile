@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/18 10:27:34 by susami           ###   ########.fr        #
+#    Updated: 2022/04/18 15:20:52 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ CFLAGS			=	-Wall -Wextra -Werror
 INCS			=	./includes\
 					./libs/libassert\
 					$(LIBFT_DIR)
+
 SRCS			=	srcs/*.c
 OBJS			=	$(SRCS:%.c=$(OUT_O_DIR)/%.o)
 OBJ_DIR			=	objs
-FUNCS			=	isalpha\
+FUNCS_PART1		=	isalpha\
 					isdigit\
 					isalnum\
 					isascii\
@@ -47,6 +48,29 @@ FUNCS			=	isalpha\
 					calloc\
 					strdup\
 
+FUNCS_PART2		=	substr\
+					strjoin\
+					strtrim\
+					split\
+					itoa\
+					strmapi\
+					striteri\
+					putchar_fd\
+					putstr_fd\
+					putendl_fd\
+					putnbr_fd\
+
+FUNCS_BONUS		=	lstnew\
+					lstadd_front\
+					lstsize\
+					lstlast\
+					lstadd_back\
+					lstdelone\
+					lstclear\
+					lstiter\
+					lstmap\
+					
+FUNCS			= $(FUNCS_PART1) $(FUNCS_PART2)
 ERROR_LOG		=	error.log
 
 all: start_tests $(FUNCS)
@@ -57,10 +81,23 @@ all: start_tests $(FUNCS)
 		printf "\e[31m\n\n------------------------------------------------------------\
 		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
 
+bonus: start_bonus_tests $(FUNCS_BONUS)
+	@find . -name "*.log" -size 0 -exec rm {} \;
+	@[ ! -f $(ERROR_LOG) ] &&\
+		printf "\e[32m\n\n------------------------------------------------------------\
+		\nAll tests passed successfully! Congratulations :D\n\e[m" ||\
+		printf "\e[31m\n\n------------------------------------------------------------\
+		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
 
 start_tests:
 	@$(RM) $(ERROR_LOG)
 	make -C $(LIBFT_DIR)
+	make -C ./libs/libassert
+	@#make -C $(LIBFT_DIR) bonus
+
+start_bonus_tests:
+	@$(RM) $(ERROR_LOG)
+	make -C $(LIBFT_DIR) bonus
 	make -C ./libs/libassert
 
 $(LIBFT):
@@ -80,19 +117,18 @@ re: fclean all
 
 norm:
 	@echo "------------------------------Checking restrict keyword usage------------------------------"
-	cat $(LIBFT_DIR)*.c | egrep '\.c|restrict' | grep -B 1 'restrict'
-	@echo "------------------------------Checking protect------------------------------"
-	cat $(LIBFT_DIR)*.c | egrep 'protect|\.c' | grep -B 1 'protect'
+	cat $(LIBFT_DIR)*.c | egrep '\.c|restrict' | grep -B 1 'restrict' && printf "\e[31mYour implementation may contains unallowed restrict keyword.\n\e[m" || printf "\e[32mOK :D\n\e[m"
 	@echo "------------------------------Checking included headers------------------------------"
-	cat $(LIBFT_DIR)*.c | egrep '<*.h>|\.c' | grep -B 1 '<*.h>'
+	cat $(LIBFT_DIR)*.c | egrep '<*.h>|\.c' | grep -B 1 '<*.h>' || printf "\e[32mheader inclusion OK :D\n\e[m"
 	@echo "------------------------------Checking static methods...------------------------------"
-	nm $(LIBFT) | egrep "T _[a-z]|libft.a"
+	nm $(LIBFT) -A | grep "T _" | sed -e 's/: .* T _.*//' | sed -e 's/..\/libft.a://' | uniq -c | grep -v ' 1 ' && printf "\e[31mNon static functions found in your imlementation!\n\e[m" || printf "\e[32mOK :D\n\e[m"
 	@echo "------------------------------Checking unallowed methods------------------------------"
-	nm $(LIBFT) | egrep "U _[a-z]|libft.a" | grep -v "U _ft_" | grep -B 1 'U _[a-z]'
+	nm $(LIBFT) -A | egrep "U _[a-z]" | egrep -v "U _ft_[a-z]" | sed -e 's/..\/libft.a://'
+	@printf "\e[33mMake sure your implementation does not use unallowed standard functions.\n\e[m"
 	@echo "------------------------------Checking norminette------------------------------"
-	norminette $(LIBFT_DIR)
+	norminette $(LIBFT_DIR)*.c $(LIBFT_DIR)*.h | grep -v "OK!" || printf "\e[32mnorminette OK :D\e[m"
 
-$(FUNCS): $(LIBFT) $(LIBASSERT)
+$(FUNCS) $(FUNCS_BONUS): $(LIBFT) $(LIBASSERT)
 	@printf "ft_$@: "
 	@$(CC) srcs/test_ft_$@.c $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out
 	@printf "\n"
