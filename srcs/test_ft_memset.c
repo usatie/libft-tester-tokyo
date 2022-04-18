@@ -6,16 +6,16 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:11:14 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 22:17:59 by kfujita          ###   ########.fr       */
+/*   Updated: 2022/04/19 00:29:11 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <limits.h>
 #include "libft.h"
 #include "libassert.h"
-#include <malloc/malloc.h>
 
 void	check_memset(char *s1, char *s2, int val, size_t size)
 {
@@ -27,7 +27,7 @@ void	check_memset(char *s1, char *s2, int val, size_t size)
 int	main(void)
 {
 	char	*s1, *s2;
-	
+
 	/* 1 */ s1 = calloc(100, 100); s2 = calloc(100, 100); check_memset(s1, s2, 0, 0); free(s1); free(s2);
 	/* 2 */ s1 = calloc(100, 100); s2 = calloc(100, 100); check_memset(s1, s2, 1, 0); free(s1); free(s2);
 	/* 3 */ s1 = calloc(100, 100); s2 = calloc(100, 100); check_memset(s1, s2, 0, 1); free(s1); free(s2);

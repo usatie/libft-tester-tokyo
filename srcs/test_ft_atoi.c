@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_aoti.c                                     :+:      :+:    :+:   */
+/*   test_ft_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 11:05:54 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 16:15:12 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/19 00:02:05 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 #include "libassert.h"
@@ -56,7 +57,7 @@ int	main(void)
 	/* 35. LONG_MIN + 1 */ ASSERT_EQ_I(atoi("-9223372036854775807"), ft_atoi("-9223372036854775807"));
 	/* 36. ULONG_MAX - 1 */ ASSERT_EQ_I(atoi("18446744073709551614"), ft_atoi("18446744073709551614"));
 	/* 37. SIZE_MAX - 1 */ ASSERT_EQ_I(atoi("18446744073709551614"), ft_atoi("18446744073709551614"));
-	
+
 	/* 38. Many zeros 1*/ ASSERT_EQ_I(atoi("000000000000000000008"), ft_atoi("000000000000000000008"));
 	/* 39. Many zeros 2*/ ASSERT_EQ_I(atoi("-000000000000000000008"), ft_atoi("-000000000000000000008"));
 	/* 40. Many zeros 3*/ ASSERT_EQ_I(atoi("+000000000000000000008"), ft_atoi("+000000000000000000008"));

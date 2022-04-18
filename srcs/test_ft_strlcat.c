@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_strlcat.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 21:16:21 by susami            #+#    #+#             */
-/*   Updated: 2022/04/17 21:40:47 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 23:49:57 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include "libft.h"

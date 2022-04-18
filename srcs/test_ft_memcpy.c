@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_memcpy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 18:04:04 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 19:09:17 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/19 00:29:03 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 #include "libassert.h"
-#include <malloc/malloc.h>
 
 void	check_memcpy(void *dst, void *src, size_t size)
 {

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_strdup.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 10:25:42 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 10:31:36 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/19 00:17:36 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 #include "libassert.h"
-#include <malloc/malloc.h>
 
 void	check_strdup(char *str)
 {
