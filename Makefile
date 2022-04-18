@@ -12,9 +12,12 @@
 
 LIBFT_DIR		=	../
 LIBFT			=	$(LIBFT_DIR)libft.a
+LIBFT_00		=	$(LIBFT_DIR)libft00.a
+LIBFT_01		=	$(LIBFT_DIR)libft01.a
+LIBFT_02		=	$(LIBFT_DIR)libft02.a
 LIBASSERT_DIR	=	./libs/libassert/
 LIBASSERT		=	$(LIBASSERT_DIR)libassert.a
-LIBS			= 	$(LIBFT) ./libs/*/*.a
+LIBS			= 	./libs/*/*.a
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 INCS			=	./includes\
@@ -23,7 +26,8 @@ INCS			=	./includes\
 SRCS			=	srcs/*.c
 OBJS			=	$(SRCS:%.c=$(OUT_O_DIR)/%.o)
 OBJ_DIR			=	objs
-FUNCS_PART1		=	isalpha\
+
+FUNCS_LIBFT00	=	isalpha\
 					isdigit\
 					isalnum\
 					isascii\
@@ -35,7 +39,8 @@ FUNCS_PART1		=	isalpha\
 					memmove\
 					strlcpy\
 					strlcat\
-					toupper\
+
+FUNCS_LIBFT01	=	toupper\
 					tolower\
 					strchr\
 					strrchr\
@@ -44,14 +49,24 @@ FUNCS_PART1		=	isalpha\
 					memcmp\
 					strnstr\
 					atoi\
-					calloc\
+
+FUNCS_LIBFT02_1	=	calloc\
 					strdup\
 
-FUNCS_PART2		=	substr\
+FUNCS_LIBFT02_2	=	substr\
 					strjoin\
 					strtrim\
 					split\
 					itoa\
+
+FUNCS_LIBFT02	=	$(FUNCS_LIBFT02_1)\
+					$(FUNCS_LIBFT02_2)\
+
+FUNCS_PART1		=	$(FUNCS_LIBFT00)\
+					$(FUNCS_LIBFT01)\
+					$(FUNCS_LIBFT02_1)\
+
+FUNCS_PART2		=	$(FUNCS_LIBFT02_2)\
 					strmapi\
 					striteri\
 					putchar_fd\
@@ -70,7 +85,19 @@ FUNCS_BONUS		=	lstnew\
 					lstmap\
 
 FUNCS_EXTRA		=	strcmp\
-					
+
+RE_LIBFT00_TARG	=	$(addsuffix .re, $(FUNCS_LIBFT00))
+RE_LIBFT01_TARG	=	$(addsuffix .re, $(FUNCS_LIBFT01))
+RE_LIBFT02_TARG	=	$(addsuffix .re, $(FUNCS_LIBFT02))
+
+SRCS_LIBFT00	= $(shell ls $(addprefix $(LIBFT_DIR)ft_, $(addsuffix .c, $(FUNCS_LIBFT00))) 2> /dev/null)
+SRCS_LIBFT01	= $(shell ls $(addprefix $(LIBFT_DIR)ft_, $(addsuffix .c, $(FUNCS_LIBFT01))) 2> /dev/null)
+SRCS_LIBFT02	= $(shell ls $(addprefix $(LIBFT_DIR)ft_, $(addsuffix .c, $(FUNCS_LIBFT02))) 2> /dev/null)
+
+OBJS_LIBFT00	= $(SRCS_LIBFT00:.c=.o)
+OBJS_LIBFT01	= $(SRCS_LIBFT01:.c=.o)
+OBJS_LIBFT02	= $(SRCS_LIBFT02:.c=.o)
+
 FUNCS			= $(FUNCS_PART1) $(FUNCS_PART2)
 ERROR_LOG		=	error.log
 
@@ -97,6 +124,31 @@ extra: start_bonus_tests $(FUNCS_EXTRA)
 		\n[EXTRA] All tests passed successfully! Congratulations :D\n\e[m" ||\
 		printf "\e[31m\n\n------------------------------------------------------------\
 		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
+
+libft-00: start_reloaded_tests $(RE_LIBFT00_TARG)
+	@find . -name "*.log" -size 0 -exec rm {} \;
+	@[ ! -f $(ERROR_LOG) ] &&\
+		printf "\e[32m\n\n------------------------------------------------------------\
+		\n[Libft-00] All tests passed successfully! Congratulations :D\n\e[m" ||\
+		printf "\e[31m\n\n------------------------------------------------------------\
+		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
+
+libft-01: start_reloaded_tests $(RE_LIBFT01_TARG)
+	@find . -name "*.log" -size 0 -exec rm {} \;
+	@[ ! -f $(ERROR_LOG) ] &&\
+		printf "\e[32m\n\n------------------------------------------------------------\
+		\n[Libft-01] All tests passed successfully! Congratulations :D\n\e[m" ||\
+		printf "\e[31m\n\n------------------------------------------------------------\
+		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
+
+libft-02: start_reloaded_tests $(RE_LIBFT02_TARG)
+	@find . -name "*.log" -size 0 -exec rm {} \;
+	@[ ! -f $(ERROR_LOG) ] &&\
+		printf "\e[32m\n\n------------------------------------------------------------\
+		\n[Libft-02] All tests passed successfully! Congratulations :D\n\e[m" ||\
+		printf "\e[31m\n\n------------------------------------------------------------\
+		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
+
 start_tests:
 	@$(RM) $(ERROR_LOG)
 	make -C $(LIBFT_DIR)
@@ -108,8 +160,21 @@ start_bonus_tests:
 	make -C $(LIBFT_DIR) bonus
 	make -C ./libs/libassert
 
+start_reloaded_tests:
+	@$(RM) $(ERROR_LOG)
+	make -C ./libs/libassert
+
 $(LIBFT):
 	make -C $(LIBFT_DIR)
+
+$(LIBFT_00): $(OBJS_LIBFT00)
+	ar rc $@ $^
+
+$(LIBFT_01): $(OBJS_LIBFT00) $(OBJS_LIBFT01)
+	ar rc $@ $^
+
+$(LIBFT_02): $(OBJS_LIBFT00) $(OBJS_LIBFT01) $(OBJS_LIBFT02)
+	ar rc $@ $^
 
 $(LIBASSERT):
 	make -C ./libs/libassert
@@ -141,7 +206,22 @@ norm:
 
 $(FUNCS) $(FUNCS_BONUS) $(FUNCS_EXTRA): $(LIBFT) $(LIBASSERT)
 	@printf "ft_$@: "
-	@-$(CC) srcs/test_ft_$@.c $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) 2>>$(ERROR_LOG) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out || printf "\e[31m[MISSING]\e[m"
+	@-$(CC) srcs/test_ft_$@.c $(LIBFT) $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) 2>>$(ERROR_LOG) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out || printf "\e[31m[MISSING]\e[m"
+	@printf "\n"
+
+$(RE_LIBFT00_TARG): $(LIBFT_00) $(LIBASSERT)
+	@printf "ft_$(basename $@): "
+	@-$(CC) srcs/test_ft_$(basename $@).c $(LIBFT_00) $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) 2>>$(ERROR_LOG) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out || printf "\e[31m[MISSING]\e[m"
+	@printf "\n"
+
+$(RE_LIBFT01_TARG): $(LIBFT_01) $(LIBASSERT)
+	@printf "ft_$(basename $@): "
+	@-$(CC) srcs/test_ft_$(basename $@).c $(LIBFT_01) $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) 2>>$(ERROR_LOG) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out || printf "\e[31m[MISSING]\e[m"
+	@printf "\n"
+
+$(RE_LIBFT02_TARG): $(LIBFT_02) $(LIBASSERT)
+	@printf "ft_$(basename $@): "
+	@-$(CC) srcs/test_ft_$(basename $@).c $(LIBFT_02) $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) 2>>$(ERROR_LOG) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out || printf "\e[31m[MISSING]\e[m"
 	@printf "\n"
 
 .PHONY: all clean fclean re bonus norm test clone
