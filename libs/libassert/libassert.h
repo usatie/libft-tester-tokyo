@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 07:52:22 by susami            #+#    #+#             */
-/*   Updated: 2022/04/17 21:23:32 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 08:46:35 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ASSERT_EQ_MALLOC_SIZE(void *actual, void *expected,
 			char *caller_file, const char *caller_func, int caller_line);
 void	ASSERT_EQ_MEM(void *actual, void *expected, size_t size,
 			char *caller_file, const char *caller_func, int caller_line);
+void	ASSERT_EQ_PTR(void *actual, void *expected,
+			char *caller_file, const char *caller_func, int caller_line);
 # define ASSERT_TRUE(x) ASSERT_TRUE(x, __FILE__,__func__,__LINE__)
 # define ASSERT_EQ_I(x, y) ASSERT_EQ_I(x, y, __FILE__,__func__,__LINE__)
 # define ASSERT_EQ_UI(x, y) ASSERT_EQ_UI(x, y, __FILE__,__func__,__LINE__)
@@ -48,5 +50,6 @@ void	ASSERT_EQ_MEM(void *actual, void *expected, size_t size,
 # define ASSERT_EQ_STR(x, y) ASSERT_EQ_STR(x, y, __FILE__,__func__,__LINE__)
 # define ASSERT_EQ_MALLOC_SIZE(x, y) ASSERT_EQ_MALLOC_SIZE(x, y, __FILE__,__func__,__LINE__)
 # define ASSERT_EQ_MEM(x, y, z) ASSERT_EQ_MEM(x, y, z, __FILE__,__func__,__LINE__)
+# define ASSERT_EQ_PTR(x, y) ASSERT_EQ_PTR(x, y, __FILE__,__func__,__LINE__)
 
 #endif

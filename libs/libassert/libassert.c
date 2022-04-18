@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:34:09 by susami            #+#    #+#             */
-/*   Updated: 2022/04/17 21:23:07 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/18 08:49:51 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,6 +286,22 @@ void	ASSERT_EQ_MEM(void *actual, void *expected, size_t size,
 		print_error("\") is not equal to expected (\"");
 		hexdump(expected, size);
 		print_error("\"). ");
+		print_error("func %s at file %s, line %d\n",
+			caller_func, caller_file, caller_line);
+	}
+	else
+		print_ok();
+}
+
+void	ASSERT_EQ_PTR(void *actual, void *expected,
+			char *caller_file, const char *caller_func, int caller_line)
+{
+	start_test();
+	if (actual != expected)
+	{
+		print_ko();
+		print_error("[test %zu] %s failed: (\"%p\") is not equal to expected (\"%p\"). ",
+			counter, __func__, actual, expected);
 		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}

@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/18 08:25:39 by susami           ###   ########.fr        #
+#    Updated: 2022/04/18 08:41:25 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,9 @@ FUNCS			=	isalpha\
 					strchr\
 					strrchr\
 					strncmp\
+					memchr\
+					memcmp\
+					strstr\
 					atoi\
 					calloc
 ERROR_LOG		=	error.log
