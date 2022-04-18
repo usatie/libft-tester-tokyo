@@ -22,3 +22,9 @@ In that case, please run the make command like this.
 ```
 $ make LIBFT_DIR=/path/to/your/libft/dir
 ```
+<img width="1386" alt="Screen Shot 2022-04-18 at 9 35 27" src="https://user-images.githubusercontent.com/7609060/163738259-a04237e5-d66d-4694-b323-8739b194fe12.png">
+
+<img width="1388" alt="Screen Shot 2022-04-18 at 9 34 55" src="https://user-images.githubusercontent.com/7609060/163738262-2070f78d-83e2-4585-83d4-c65edbcdcddb.png">
+
+
+
