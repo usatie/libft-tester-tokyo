@@ -6,16 +6,16 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 12:10:25 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 22:16:19 by kfujita          ###   ########.fr       */
+/*   Updated: 2022/04/19 00:28:51 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <limits.h>
 #include "libft.h"
 #include "libassert.h"
-#include <malloc/malloc.h>
 
 void	check_calloc(size_t cnt, size_t size)
 {

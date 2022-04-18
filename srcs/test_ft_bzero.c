@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_bzero.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:40:45 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 10:22:58 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/19 00:28:43 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 #include "libassert.h"
-#include <malloc/malloc.h>
 
 void	check_bzero(char *s1, char *s2, size_t size)
 {
@@ -30,7 +30,7 @@ void	check_bzero(char *s1, char *s2, size_t size)
 int	main(void)
 {
 	char	*s1, *s2;
-	
+
 	/* 1 */ s1 = malloc(100); s2 = malloc(100); check_bzero(s1, s2, 0); free(s1); free(s2);
 	/* 2 */ s1 = malloc(100); s2 = malloc(100); check_bzero(s1, s2, 1); free(s1); free(s2);
 	/* 3 */ s1 = malloc(100); s2 = malloc(100); check_bzero(s1, s2, 42); free(s1); free(s2);
