@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 10:38:44 by susami            #+#    #+#             */
-/*   Updated: 2022/04/19 10:45:30 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/19 10:46:42 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(void)
     /* 4 */ ASSERT_EQ_STR(buf, "hello world 42!");
     ft_putstr_fd("\n\n\n", fd); lseek(fd, 0, SEEK_SET); bzero(buf, 1024); read(fd, buf, 1024);
     /* 5 */ ASSERT_EQ_STR(buf, "hello world 42!\n\n\n");
+    close(fd);
     remove("tmp.txt");
 	return (0);
 }
