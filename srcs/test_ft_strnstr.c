@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 09:06:34 by susami            #+#    #+#             */
-/*   Updated: 2022/04/21 11:58:13 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/21 13:01:23 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	main(void)
 	}
     /* 113 */ ASSERT_EQ_PTR(ft_strnstr("", "hello", 5), strnstr("", "hello", 5));
     /* 114 */ ASSERT_EQ_PTR(ft_strnstr("", "", 0), strnstr("", "", 0));
-    /* 115 */ ASSERT_EQ_PTR(ft_strnstr(NULL, "1", 0), strnstr(NULL, "1", 0));
+	// Segmentation Fault(on guacamole, but not on M1 MBA)
+    // /* 115 */ ASSERT_EQ_PTR(ft_strnstr(NULL, "1", 0), strnstr(NULL, "1", 0));
     // Segmentation Fault
     // /* 116 */ ASSERT_EQ_PTR(ft_strnstr(NULL, "1", 1), strnstr(NULL, "1", 1));
 }
