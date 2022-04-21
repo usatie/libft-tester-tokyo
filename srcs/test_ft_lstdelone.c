@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 12:22:17 by susami            #+#    #+#             */
-/*   Updated: 2022/04/19 13:52:36 by susami           ###   ########.fr       */
+/*   Updated: 2022/04/21 12:10:16 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,12 @@ int	main(void)
     /* 6 */ ASSERT_EQ_PTR(lst, elem2);
     /* 7 */ ASSERT_EQ_I(counter, 2);
     /* 8 */ ASSERT_EQ_PTR(freed, s2);
-    ft_lstdelone(elem5, NULL);
+
+    ft_lstdelone(elem5, void_free);
     /* 9 */ ASSERT_EQ_PTR(lst, elem2);
     /* 10 */ ASSERT_EQ_I(counter, 3);
     /* 11 */ ASSERT_EQ_PTR(freed, &val5);
+
+    // Segmentaiton Fault
+    // /* */ ft_lstdelone(elem4, NULL);
 }
