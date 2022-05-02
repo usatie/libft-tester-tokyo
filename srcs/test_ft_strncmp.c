@@ -6,7 +6,7 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 08:17:32 by susami            #+#    #+#             */
-/*   Updated: 2022/05/02 10:10:00 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:45:43 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ int	main(void)
 	/* 55 */ ASSERT_EQ_I(ft_strncmp(str, cmp2, len), strncmp(str, cmp2, len));
 	cmp2[5] = CHAR_MAX;
 	/* 56 */ ASSERT_EQ_I(ft_strncmp(str, cmp2, len), strncmp(str, cmp2, len));
+	/* 57 */ ASSERT_EQ_I(ft_strncmp("hello", NULL, 0), strncmp("hello", NULL, 0));
+	/* 58 */ ASSERT_EQ_I(ft_strncmp(NULL, "hello", 0), strncmp(NULL, "hello", 0));
+	/* 59 */ ASSERT_EQ_I(ft_strncmp(NULL, NULL, 0), strncmp(NULL, NULL, 0));
 	return (0);
 }
