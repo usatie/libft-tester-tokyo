@@ -6,14 +6,11 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 11:33:52 by susami            #+#    #+#             */
-/*   Updated: 2022/04/21 11:43:38 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:06:05 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <ctype.h>
-#include "libft.h"
-#include "libassert.h"
+#include "tester.h"
 
 static void *str_toupper(void *p)
 {

@@ -6,15 +6,11 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 19:09:36 by susami            #+#    #+#             */
-/*   Updated: 2022/04/15 19:10:53 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:07:23 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include "libft.h"
-#include "libassert.h"
-#include <malloc/malloc.h>
+#include "tester.h"
 
 void	check_memmove(void *dst, void *src, size_t size)
 {

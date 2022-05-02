@@ -6,15 +6,11 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:11:14 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 08:09:32 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:07:30 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include "libft.h"
-#include "libassert.h"
-#include <malloc/malloc.h>
+#include "tester.h"
 
 void	check_memset(char *s1, char *s2, int val, size_t size)
 {

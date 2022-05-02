@@ -6,15 +6,11 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 07:35:38 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 07:43:57 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:08:48 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include "libft.h"
-#include "libassert.h"
+#include "tester.h"
 
 int	main(void)
 {

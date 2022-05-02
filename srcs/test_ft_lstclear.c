@@ -6,15 +6,11 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:53:53 by susami            #+#    #+#             */
-/*   Updated: 2022/04/19 18:26:58 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:05:23 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include "libft.h"
-#include "libassert.h"
-
+#include "tester.h"
 
 static int counter = 0;
 static void *freed[10] = {};

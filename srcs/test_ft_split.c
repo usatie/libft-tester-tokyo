@@ -6,15 +6,11 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 16:34:25 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 18:11:38 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:08:39 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include "libft.h"
-#include "libassert.h"
-#include <malloc/malloc.h>
+#include "tester.h"
 
 void	assert_str_array(char **actual, char **expected)
 {

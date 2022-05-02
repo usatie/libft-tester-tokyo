@@ -6,7 +6,7 @@
 #    By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:49:28 by susami            #+#    #+#              #
-#    Updated: 2022/04/18 15:20:52 by susami           ###   ########.fr        #
+#    Updated: 2022/05/02 10:41:49 by susami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ LIBS			= 	$(LIBFT) ./libs/*/*.a
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 INCS			=	./includes\
-					./libs/libassert\
 					$(LIBFT_DIR)
 
 SRCS			=	srcs/*.c
@@ -77,7 +76,7 @@ all: start_tests $(FUNCS)
 	@find . -name "*.log" -size 0 -exec rm {} \;
 	@[ ! -f $(ERROR_LOG) ] &&\
 		printf "\e[32m\n\n------------------------------------------------------------\
-		\nAll tests passed successfully! Congratulations :D\n\e[m" ||\
+		\n[MANDATORY PARTS] All tests passed successfully! Congratulations :D\n\e[m" ||\
 		printf "\e[31m\n\n------------------------------------------------------------\
 		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
 
@@ -85,7 +84,7 @@ bonus: start_bonus_tests $(FUNCS_BONUS)
 	@find . -name "*.log" -size 0 -exec rm {} \;
 	@[ ! -f $(ERROR_LOG) ] &&\
 		printf "\e[32m\n\n------------------------------------------------------------\
-		\nAll tests passed successfully! Congratulations :D\n\e[m" ||\
+		\n[BONUS PARTS] All tests passed successfully! Congratulations :D\n\e[m" ||\
 		printf "\e[31m\n\n------------------------------------------------------------\
 		\nSome tests failed. Please see error.log for more detailed information.\n\e[m"
 
@@ -112,6 +111,9 @@ $(OBJ_DIR)/%.o: %.c
 
 clean:
 	@$(RM) $(OUT_O_DIR)/*.o $(ERROR_LOG)
+
+fclean: clean
+	@$(MAKE) -C ./libs/libassert re
 
 re: fclean all
 
