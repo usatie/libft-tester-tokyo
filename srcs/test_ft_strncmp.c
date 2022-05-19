@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_strncmp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 08:17:32 by susami            #+#    #+#             */
 /*   Updated: 2022/05/02 10:45:43 by susami           ###   ########.fr       */

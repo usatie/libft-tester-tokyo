@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_isalpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 16:35:50 by susami            #+#    #+#             */
 /*   Updated: 2022/05/02 10:02:33 by susami           ###   ########.fr       */

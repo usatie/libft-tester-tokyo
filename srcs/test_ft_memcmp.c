@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_memcmp.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 08:56:22 by susami            #+#    #+#             */
 /*   Updated: 2022/05/02 10:11:08 by susami           ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_calloc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 12:10:25 by susami            #+#    #+#             */
 /*   Updated: 2022/05/02 10:02:21 by susami           ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_tolower.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:28:39 by susami            #+#    #+#             */
 /*   Updated: 2022/05/02 10:10:38 by susami           ###   ########.fr       */
