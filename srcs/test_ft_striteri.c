@@ -6,15 +6,11 @@
 /*   By: shunusami <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 09:07:48 by shunusam          #+#    #+#             */
-/*   Updated: 2022/04/19 09:08:29 by shunusam         ###   ########.fr       */
+/*   Updated: 2022/05/02 10:09:02 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include "libft.h"
-#include "libassert.h"
+#include "tester.h"
 
 static int (*f)(int) = NULL;
 static void F(unsigned int i, char *s) { (void)i; *s = f(*s); };

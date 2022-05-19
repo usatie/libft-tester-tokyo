@@ -6,15 +6,11 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 10:25:42 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 10:31:36 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:08:57 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include "libft.h"
-#include "libassert.h"
-#include <malloc/malloc.h>
+#include "tester.h"
 
 void	check_strdup(char *str)
 {

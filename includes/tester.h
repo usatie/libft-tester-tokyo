@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_strjoin.c                                  :+:      :+:    :+:   */
+/*   tester.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 16:20:37 by susami            #+#    #+#             */
-/*   Updated: 2022/05/02 10:09:15 by susami           ###   ########.fr       */
+/*   Created: 2022/05/02 09:47:36 by susami            #+#    #+#             */
+/*   Updated: 2022/05/02 10:07:55 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tester.h"
+#ifndef TESTER_H
+# define TESTER_H
 
-int	main(void)
-{
-	/* 1 */ ASSERT_EQ_STR(ft_strjoin("hello", "world"), "helloworld");
-	/* 2 */ ASSERT_EQ_STR(ft_strjoin("", "world"), "world");
-	/* 3 */ ASSERT_EQ_STR(ft_strjoin("hello", ""), "hello");
-	/* 4 */ ASSERT_EQ_STR(ft_strjoin("", ""), "");
-}
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <ctype.h>
+# include <fcntl.h>
+# include "libft.h"
+# include "libassert.h"
+
+#endif

@@ -6,15 +6,11 @@
 /*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:40:45 by susami            #+#    #+#             */
-/*   Updated: 2022/04/18 10:22:58 by susami           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:02:12 by susami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include "libft.h"
-#include "libassert.h"
-#include <malloc/malloc.h>
+#include "tester.h"
 
 void	check_bzero(char *s1, char *s2, size_t size)
 {
