@@ -18,6 +18,7 @@
 # include <string.h>
 # include <ctype.h>
 # include <fcntl.h>
+# include <limits.h>
 # include "libft.h"
 # include "libassert.h"
 
