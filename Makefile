@@ -204,6 +204,13 @@ norm:
 	@echo "------------------------------Checking norminette------------------------------"
 	norminette $(LIBFT_DIR)*.c $(LIBFT_DIR)*.h | grep -v "OK!" || printf "\e[32mnorminette OK :D\n\e[m"
 
+norm00: $(LIBFT_00)
+	make norm LIBFT=$<
+norm01: $(LIBFT_01)
+	make norm LIBFT=$<
+norm02: $(LIBFT_02)
+	make norm LIBFT=$<
+
 $(FUNCS) $(FUNCS_BONUS) $(FUNCS_EXTRA): $(LIBFT) $(LIBASSERT)
 	@printf "ft_$@: "
 	@-$(CC) srcs/test_ft_$@.c $(LIBFT) $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) 2>>$(ERROR_LOG) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out || printf "\e[31m[MISSING]\e[m"

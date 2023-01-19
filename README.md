@@ -57,6 +57,12 @@ $ make strnstr.re
 $ make norm
 ```
 
+If you want to run norm check for Libft-00 ~ Libft-02, please use below.  (Please change part number `00` to same as your project.)
+
+```
+$ make norm00
+```
+
 <img width="1369" alt="Screen Shot 2022-04-18 at 15 27 40" src="https://user-images.githubusercontent.com/7609060/163765260-3fad885b-e00a-4b3f-9468-cc998ae5cb24.png">
 
 
