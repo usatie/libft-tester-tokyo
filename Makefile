@@ -20,6 +20,14 @@ LIBASSERT		=	$(LIBASSERT_DIR)libassert.a
 LIBS			= 	./libs/*/*.a
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
+LDFLAGS =
+PICFLAG =
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+    LDFLAGS += -lbsd
+	PICFLAG += CFLAGS="-Wall -Wextra -Werror -fPIC"
+endif
+
 INCS			=	./includes\
 					$(LIBFT_DIR)\
 
@@ -151,7 +159,7 @@ libft-02: start_reloaded_tests $(RE_LIBFT02_TARG)
 
 start_tests:
 	@$(RM) $(ERROR_LOG)
-	make -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR) $(PICFLAG)
 	make -C ./libs/libassert
 	@#make -C $(LIBFT_DIR) bonus
 
@@ -213,7 +221,7 @@ norm02: $(LIBFT_02)
 
 $(FUNCS) $(FUNCS_BONUS) $(FUNCS_EXTRA): $(LIBFT) $(LIBASSERT)
 	@printf "ft_$@: "
-	@-$(CC) srcs/test_ft_$@.c $(LIBFT) $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) 2>>$(ERROR_LOG) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out || printf "\e[31m[MISSING]\e[m"
+	@-$(CC) srcs/test_ft_$@.c $(LIBFT) $(LIBS) $(addprefix -I , $(INCS)) -o a.out $(CFLAGS) $(LDFLAGS) 2>>$(ERROR_LOG) && ./a.out 2>>$(ERROR_LOG) && $(RM) a.out || printf "\e[31m[MISSING]\e[m"
 	@printf "\n"
 
 $(RE_LIBFT00_TARG): $(LIBFT_00) $(LIBASSERT)

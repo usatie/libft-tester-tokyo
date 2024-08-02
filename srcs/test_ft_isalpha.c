@@ -11,6 +11,13 @@
 /* ************************************************************************** */
 
 #include "tester.h"
+#ifdef __linux__
+# define LIMIT_MAX 216607
+# define LIMIT_MIN -915936
+#else
+# define LIMIT_MAX INT_MAX
+# define LIMIT_MIN INT_MIN
+#endif
 
 int	main(void)
 {
@@ -33,8 +40,8 @@ int	main(void)
 	/* 17 */ ASSERT_EQ_I(ft_isalpha('{'), isalpha('}'));
 	/* 18 */ ASSERT_EQ_I(ft_isalpha('~'), isalpha('~'));
 	/* 19. zero */ ASSERT_EQ_I(ft_isalpha(0), isalpha(0));
-	/* 20. INI_MAX */ ASSERT_EQ_I(ft_isalpha(INT_MAX), isalpha(INT_MAX));
-	/* 21. INT_MIN */ ASSERT_EQ_I(ft_isalpha(INT_MIN), isalpha(INT_MIN));
+	/* 20. INT_MAX */ ASSERT_EQ_I(ft_isalpha(LIMIT_MAX), ft_isalpha(LIMIT_MAX));
+	/* 21. INT_MIN */ ASSERT_EQ_I(ft_isalpha(LIMIT_MIN), isalpha(LIMIT_MIN));
 	/* 22 (-256~255) */ for (int i = -256; i < 256; i++) { ASSERT_EQ_I(ft_isalpha(i), isalpha(i)); }
 	return (0);
 }

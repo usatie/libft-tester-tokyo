@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "tester.h"
+#ifdef __linux__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wnonnull"
+#endif
 
 int	main(void)
 {
@@ -45,3 +49,7 @@ int	main(void)
 	/* 59 */ ASSERT_EQ_I(ft_strncmp(NULL, NULL, 0), strncmp(NULL, NULL, 0));
 	return (0);
 }
+
+#ifdef __linux__
+#pragma GCC diagnostic pop
+#endif

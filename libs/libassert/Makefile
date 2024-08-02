@@ -17,6 +17,11 @@ OBJS	=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
 NAME	=	libassert.a
 RM		=	rm -f
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+    CFLAGS +=  -fPIC
+endif
+
 all: $(NAME)
 
 $(NAME): $(OBJS)

@@ -13,10 +13,17 @@
 #ifndef TESTER_H
 # define TESTER_H
 
+#ifdef __linux__
+# include <bsd/string.h>
+# include <stdint.h>
+# include <sys/stat.h>
+#else
+# include <string.h>
+#endif
+
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <ctype.h>
 # include <fcntl.h>
 # include "libft.h"

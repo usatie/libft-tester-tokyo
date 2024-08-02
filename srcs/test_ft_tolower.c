@@ -33,7 +33,7 @@ int	main(void)
 	/* 17 */ ASSERT_EQ_I(ft_tolower('{'), tolower('{'));
 	/* 18 */ ASSERT_EQ_I(ft_tolower('~'), tolower('~'));
 	/* 19. zero */ ASSERT_EQ_I(ft_tolower(0), tolower(0));
-	/* 20. INI_MAX */ ASSERT_EQ_I(ft_tolower(INT_MAX), tolower(INT_MAX));
+	/* 20. INT_MAX */ ASSERT_EQ_I(ft_tolower(INT_MAX), tolower(INT_MAX));
 	/* 21. INT_MIN */ ASSERT_EQ_I(ft_tolower(INT_MIN), tolower(INT_MIN));
 	/* 22 (-256~255) */ for (int i = -256; i < 256; i++) { ASSERT_EQ_I(ft_tolower(i), tolower(i)); }
 	return (0);

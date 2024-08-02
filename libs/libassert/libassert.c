@@ -10,11 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifdef __linux__
+#include <malloc.h>
+#define MALLOC_SIZE(ptr) malloc_usable_size(ptr)
+#else
+#include <malloc/malloc.h>
+#define MALLOC_SIZE(ptr) malloc_size(ptr)
+#endif
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
-#include <malloc/malloc.h>
 #define ANSI_COLOR_RED     "\x1b[1;31m"
 #define ANSI_COLOR_GREEN   "\x1b[1;32m"
 #define ANSI_COLOR_YELLOW  "\x1b[1;33m"
@@ -250,10 +256,10 @@ void	ASSERT_EQ_MALLOC_SIZE(void *actual, void *expected,
 		return ;
 	}
 		
-	if (malloc_size(actual) != malloc_size(expected))
+	if (MALLOC_SIZE(actual) != MALLOC_SIZE(expected))
 	{
 		print_ko();
-		print_error("[test %zu] %s failed: malloc_size \"%i\" is not equal to expected \"%i\"\n", counter, __func__, malloc_size(actual), malloc_size(expected));
+		print_error("[test %zu] %s failed: malloc_size \"%i\" is not equal to expected \"%i\"\n", counter, __func__, MALLOC_SIZE(actual), MALLOC_SIZE(expected));
 		print_error("func %s at file %s, line %d\n",
 			caller_func, caller_file, caller_line);
 	}
